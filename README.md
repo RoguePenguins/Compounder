@@ -24,10 +24,10 @@ Configure Metamask or similar crypto wallet with the local network.
 
 Typically it is the following but when you start the node hardhat tells you the rpc address and the chainid is in hardhat.config
 
-rpc: http://localhost:8545
+rpc: http://localhost:8545 <br />
 chainid: 1337
 
-Finally make sure to import an account seeded with eth from the hardhat node creation
+Finally make sure to import an account seeded with eth from the hardhat node creation. Note, you have to reset the metamask if you have sent a transaction and later turn off the hardhat node. The nonce metamask keeps track off is from the 'old' network which causes an error.
 
 
 
