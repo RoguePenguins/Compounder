@@ -1,15 +1,33 @@
-# Basic Sample Hardhat Project
+# Basic Manual Compounder for Trader Joe yield farms
+This is a demo project for a one click solution to compounding Trader Joe v2 yield farms. It is setup to run on a local fork of the Avalanche blockchain
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts.
-
-Try running some of the following tasks:
+# Setup
+```shell
+npm install
+npx hardhat node
+```
+creates the local blockchain and gives you a list of precreated accounts and their private keys. One of thses will need to be used.
 
 ```shell
-npx hardhat accounts
-npx hardhat compile
-npx hardhat clean
-npx hardhat test
-npx hardhat node
-node scripts/sample-script.js
-npx hardhat help
+npx hardhat run scripts/getDeployer.js --network localhost
 ```
+deploys the smart contracts needed and saves the address to Addresses.json 
+
+```shell
+npm start
+```
+Starts the react frontend
+
+
+## Wallet Setup 
+Configure Metamask or similar crypto wallet with the local network.
+
+Typically it is the following but when you start the node hardhat tells you the rpc address and the chainid is in hardhat.config
+
+rpc: http://localhost:8545
+chainid: 1337
+
+Finally make sure to import an account seeded with eth from the hardhat node creation
+
+
+
