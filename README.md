@@ -1,5 +1,5 @@
 # Basic Manual Compounder for Trader Joe yield farms
-This is a demo project for a one click solution to compounding Trader Joe v2 yield farms. It is setup to run on a local fork of the Avalanche blockchain
+This is a demo project for adding to Trader Joe v2 yield farms in one transaction. It is setup to run on a local fork of the Avalanche blockchain
 
 # Setup
 ```shell
