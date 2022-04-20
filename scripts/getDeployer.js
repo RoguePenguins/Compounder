@@ -8,11 +8,16 @@ async function main() {
 
   const Farms = await hre.ethers.getContractFactory("GetFarms");
   const farms = await Farms.deploy();
-
   await farms.deployed();
-
   console.log("GetFarms deployed to:", farms.address);
+
+  const Compound = await ethers.getContractFactory("Compounder");
+  compound = await Compound.deploy();
+  await compound.deployed();
+  console.log("Compounder deployed to:", compound.address);
+  
   addresses['GetFarms'] = farms.address
+  addresses['Compounder'] = compound.address
 
   console.log(JSON.stringify(addresses))
 

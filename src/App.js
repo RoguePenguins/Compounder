@@ -45,7 +45,7 @@ function App() {
                                 <td>{item.name}</td>
                                 <td>{item.amount}</td>
                                 <td>{item.rewards}</td>
-                                <td><button onClick={() => handleAdd(item.id,)}>Add</button></td>
+                                <td><button onClick={() => handleAdd(item.id)}>Add</button></td>
                                 <td><button>Remove</button></td>
                                 <td><button>Compound</button></td>
                                 <td/>
