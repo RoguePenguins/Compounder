@@ -4,8 +4,6 @@ import GetFarms from '../artifacts/contracts/GetFarms.sol/GetFarms.json'
 const {BigNumber} = require("bignumber.js");
 const Addresses = require('./Addresses.json');
 const GetFarms_Address = Addresses['GetFarms'];
-const JOE_CHEF = "0xd6a4F121CA35509aF06A0Be99093d08462f53052";
-
 
 async function getFarms() {
     // check if browser has metamask
@@ -22,14 +20,14 @@ async function getFarms() {
             let newFarms = []
             let newSymbols = [];
             let i=0
-            let length = await contract.getLength(JOE_CHEF)
+            let length = await contract.getLength()
             console.log(length)
             // the contract takes batches of 10 so we iterate i by 10 
             while(i<length){
             
-            newFarms = await contract.getBatchFarms(JOE_CHEF, Address, i)
+            newFarms = await contract.getBatchFarms(Address, i)
             console.log(newFarms)
-            newSymbols = await contract.getSymbols(JOE_CHEF, i)
+            newSymbols = await contract.getSymbols(i)
             console.log(newSymbols)
             for(let j=0;j<10;j++){
                 farms.push({id:i+j,name:newSymbols[j][0] +'/' + newSymbols[j][1], amount: parseFloat(ethers.utils.formatUnits(newFarms[j][0], 18)).toFixed(2), rewards: parseFloat(ethers.utils.formatUnits(newFarms[j][1]), 18).toFixed(2) })
