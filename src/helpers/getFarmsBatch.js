@@ -32,7 +32,7 @@ async function getFarms() {
             newSymbols = await contract.getSymbols(JOE_CHEF, i)
             console.log(newSymbols)
             for(let j=0;j<10;j++){
-                farms.push({id:i+j,name:newSymbols[j][0] +'/' + newSymbols[j][1], amount: newFarms[j][0].toNumber(), rewards: newFarms[j][1].toNumber()})
+                farms.push({id:i+j,name:newSymbols[j][0] +'/' + newSymbols[j][1], amount: parseFloat(ethers.utils.formatUnits(newFarms[j][0], 18)).toFixed(2), rewards: parseFloat(ethers.utils.formatUnits(newFarms[j][1]), 18).toFixed(2) })
             }
                 i += 10
             }

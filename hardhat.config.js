@@ -26,6 +26,7 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
       forking: {
         url: "https://api.avax.network/ext/bc/C/rpc",
         enabled: true,
+        blockNumber: 13237439
     },
     gasPrice: 225000000000,
     chainId: 1337

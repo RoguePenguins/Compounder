@@ -22,7 +22,7 @@ const gas = {
 const AVAXAmount = ethers.utils.parseEther(amountToSwap)
 
 
-async function addLiquidity(_pid){
+async function Compound(_pid){
     if (typeof window.ethereum !== 'undefined') {
 
         const provider = new ethers.providers.Web3Provider(window.ethereum);

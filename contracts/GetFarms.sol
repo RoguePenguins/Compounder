@@ -2,7 +2,6 @@
 pragma solidity ^0.8.4;
 import "hardhat/console.sol";
 import "./IPair.sol";
-import "./BadPools.sol";
 import "./V2Chef.sol";
 
 interface IERC20Metadata {
@@ -10,14 +9,6 @@ interface IERC20Metadata {
     function symbol() external view returns (string memory);
     function decimals() external view returns (uint8);
 }
-
-interface IUniswapV2Pair {
-    function token0() external view returns (address);
-    function token1() external view returns (address);
-}
-
-
-
 
 contract GetFarms{
 
@@ -50,6 +41,7 @@ contract GetFarms{
         }
         return pools;
     }
+
 
     function getSymbols(address _chef, uint _start) external view returns(string[2][] memory){
         uint256 length = V2Chef(_chef).poolLength();
