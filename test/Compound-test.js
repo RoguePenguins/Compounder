@@ -2,40 +2,40 @@ const { expect } = require("chai");
 const { ethers } = require("hardhat");
 const {BigNumber} = require("bignumber.js");
 
-// describe("Pool types", function () {
+describe("Pool types", function () {
 
-//     let compound;
-//     let pool;
+    let compound;
+    let pool;
    
-//     this.beforeEach(async function() {
-//         const Compound = await ethers.getContractFactory("Compounder");
-//         compound = await Compound.deploy();
-//         await compound.deployed();
-//     });
+    this.beforeEach(async function() {
+        const Compound = await ethers.getContractFactory("Compounder");
+        compound = await Compound.deploy();
+        await compound.deployed();
+    });
     
-//     it("Should return 0", async function () {
-//         pool = '0xc992Ab46428a5a2eDeB8F44D946CE5642F97EF71';
-//         expect(await compound.PoolType(pool)).to.equal(0);
-//     });
+    it("Should return 0", async function () {
+        pool = '0xc992Ab46428a5a2eDeB8F44D946CE5642F97EF71';
+        expect(await compound.PoolType(pool)).to.equal(0);
+    });
 
-//     it("Should return 1", async function () {
-//         pool = "0xbeB0b5FBd99b8e7498A4063CB419646922F6Eef8"
-//         expect(await compound.PoolType(pool)).to.equal(1);
-//     });
+    it("Should return 1", async function () {
+        pool = "0xbeB0b5FBd99b8e7498A4063CB419646922F6Eef8"
+        expect(await compound.PoolType(pool)).to.equal(1);
+    });
 
-//     it("Should return 2", async function () {
-//         pool = '0x454E67025631C065d3cFAD6d71E6892f74487a15';
-//         expect(await compound.PoolType(pool)).to.equal(2);
-//     });
-//     it("Should return 3", async function () {
-//         pool = "0xE4B66cA7a32DDc21df3c1233866957573e7EC744"
-//         expect(await compound.PoolType(pool)).to.equal(3);
-//     });
-//     it("Should return 4", async function () {
-//         pool = "0x943EDD46Fb9573A0b0517C0ce010791Bd5Ca0A15"
-//         expect(await compound.PoolType(pool)).to.equal(4);
-//     });
-// });
+    it("Should return 2", async function () {
+        pool = '0x454E67025631C065d3cFAD6d71E6892f74487a15';
+        expect(await compound.PoolType(pool)).to.equal(2);
+    });
+    it("Should return 3", async function () {
+        pool = "0xE4B66cA7a32DDc21df3c1233866957573e7EC744"
+        expect(await compound.PoolType(pool)).to.equal(3);
+    });
+    it("Should return 4", async function () {
+        pool = "0x943EDD46Fb9573A0b0517C0ce010791Bd5Ca0A15"
+        expect(await compound.PoolType(pool)).to.equal(4);
+    });
+});
 
     describe("Add to Farms", function () {
 

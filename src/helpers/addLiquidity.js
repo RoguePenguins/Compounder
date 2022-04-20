@@ -25,24 +25,24 @@ const AVAXAmount = ethers.utils.parseEther(amountToSwap)
 async function addLiquidity(_pid){
     if (typeof window.ethereum !== 'undefined') {
 
+        // setup to interact with contracts
         const provider = new ethers.providers.Web3Provider(window.ethereum);
         const signer = provider.getSigner();
-
         const compound = new ethers.Contract(Compound_Address, Compounder.abi, signer);
         const chef = new ethers.Contract(JOE_CHEF, Chef.abi, signer);
-
         const poolAddress = await compound.poolInfo(_pid);
         const pool =  new ethers.Contract(poolAddress, IERC20.abi, signer);
 
-
-
+        // filter to be used later to get amount of liquidity tokens to deposit
         let Eventsfilter = compound.filters.LiquidityAdd();
 
+        // send transaction to add
         let tx = await compound.AddToFarm(_pid, {
             ...gas,
             value: AVAXAmount
         })
 
+        // capture the event with the token amount then approve approve the chef to use the token finally deposit
         compound.once(Eventsfilter, async (value, event) => {
             await pool.approve(JOE_CHEF, value)
             await chef.deposit(_pid,value)
